@@ -1,0 +1,10 @@
+BasedOnStyle: Google
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 0
+AllowShortIfStatementsOnASingleLine: false
+BreakBeforeBraces: Attach
+SpaceBeforeParens: ControlStatements
+PointerAlignment: Left
+SortIncludes: false
