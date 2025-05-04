@@ -6,14 +6,17 @@
 struct Pins {
     static const uint8_t Thermistor = A0;  // Sensor de temperatura.
 
-    static const uint8_t Mosfet = 5;  // Controle do aquecedor via Mosfet.
-
-    static const uint8_t Driver_STEP = 6;  // STEP: Emissão de pulso, cada pulso move o motor em um passo.
-    static const uint8_t Driver_DIR = 7;   // DIR: Define o sentido de rotação (horário/anti-horário).
-
     static const uint8_t Encoder_CLK = 2;  // Clock: Detecta a mudança de posição e direção.
     static const uint8_t Encoder_DT = 3;   // Data: Indica a direção da rotação em conjunto com o CLK.
     static const uint8_t Encoder_SW = 4;   // Switch: Botão integrado ao encoder rotativo.
+
+    static const uint8_t Mosfet = 5;  // Controle do aquecedor via Mosfet.
+
+    static const uint8_t Driver_DIR = 6;   // DIR: Define o sentido de rotação (horário/anti-horário).
+    static const uint8_t Driver_STEP = 7;  // STEP: Emissão de pulso, cada pulso move o motor em um passo.
+    static const uint8_t Driver_M0 = A1;   // Microstepping M0
+    static const uint8_t Driver_M1 = A2;   // Microstepping M1
+    static const uint8_t Driver_M2 = A3;   // Microstepping M2
 
     static const uint8_t Display_CS = 10;   // Chip Select: Seleciona o display para comunicação SPI.
     static const uint8_t Display_RSE = 8;   // Reset Enable: Reseta o display.
@@ -23,12 +26,15 @@ struct Pins {
 
     static void setup() {
         pinMode(Thermistor, INPUT);
-        pinMode(Mosfet, OUTPUT);
-        pinMode(Driver_STEP, OUTPUT);
-        pinMode(Driver_DIR, OUTPUT);
         pinMode(Encoder_CLK, INPUT);
         pinMode(Encoder_DT, INPUT);
         pinMode(Encoder_SW, INPUT_PULLUP);
+        pinMode(Mosfet, OUTPUT);
+        pinMode(Driver_DIR, OUTPUT);
+        pinMode(Driver_STEP, OUTPUT);
+        pinMode(Driver_M0, OUTPUT);
+        pinMode(Driver_M1, OUTPUT);
+        pinMode(Driver_M2, OUTPUT);
         pinMode(Display_CS, OUTPUT);
         pinMode(Display_RSE, OUTPUT);
         pinMode(Display_RS, OUTPUT);
